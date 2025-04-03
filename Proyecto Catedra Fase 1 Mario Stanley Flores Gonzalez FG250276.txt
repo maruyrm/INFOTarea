@@ -1,0 +1,189 @@
+ 
+Console.WindowHeight = 35;  // alto de la ventana           
+Console.WindowWidth = 70; //ancho de la ventana
+Console.ForegroundColor = ConsoleColor.White;
+Console.BackgroundColor = ConsoleColor.Black;
+Console.Clear();
+Console.Title = "Agencia de Vuelos";
+Console.Write("\n");
+
+ConsoleKeyInfo op;
+bool continuar = true; 
+
+do
+{
+    Console.Clear();
+    Console.Write("\n");
+    Console.Write("\n");
+    Console.Write("\n");
+    Console.WriteLine("\t===================================================");
+    Console.WriteLine("\t=                                                 =");
+    Console.WriteLine("\t=  Bienvenido al Sistema de reserva de vuelos     =");
+    Console.WriteLine("\t=                                                 =");
+    Console.WriteLine("\t=  Elija la opcion que desee colocando una letra: =");
+    Console.WriteLine("\t=                                                 =");
+    Console.WriteLine("\t=               1) Registrar Cliente              =");
+    Console.WriteLine("\t=               2) Agregar un vuelo               =");
+    Console.WriteLine("\t=               3) Agregar un destino             =");
+    Console.WriteLine("\t=               4) Salir del programa             =");
+    Console.WriteLine("\t=                                                 =");
+    Console.WriteLine("\t=                                                 =");
+    Console.WriteLine("\t=                                                 =");
+    Console.WriteLine("\t===================================================");
+
+    Console.Write("\tPresione la tecla de su opción : ");
+    op = Console.ReadKey(true);
+
+    switch (op.Key)
+    {
+        case ConsoleKey.D1:
+            Console.Clear();
+            string nombre, apellido, email, direccion, fechadeNacimiento;
+            int telefono, dui, pasaporte, idcliente;
+
+            Console.Write("\n");
+            Console.Write("\n");
+            Console.Write("\n");
+            Console.Write("\t Escriba el numero de cliente: ");
+            idcliente = int.Parse(Console.ReadLine());
+            Console.Write("\t Escriba solo su primer nombre: ");
+            nombre = Console.ReadLine();
+            Console.Write("\t Escriba su primer apellido: ");
+            apellido = Console.ReadLine();
+            Console.Write("\t Escriba su fecha de nacimiento: ");
+            fechadeNacimiento = Console.ReadLine();
+            Console.Write("\t Escriba su email: ");
+            email = Console.ReadLine();
+            Console.Write("\t Escriba su numero telefonico: ");
+            telefono = int.Parse(Console.ReadLine());
+            Console.Write("\t Escriba su numero de identificacion(dui): ");
+            dui = int.Parse(Console.ReadLine());
+            Console.Write("\t Escriba su direccion: ");
+            direccion = Console.ReadLine();
+
+            Console.Write("\t Cliente registrado correctamente");
+            Console.WriteLine("\n\tPresione cualquier tecla para continuar...");
+            Console.ReadKey(true);
+            break;
+
+        case ConsoleKey.D2:
+
+            Console.Clear();
+
+            int idvuelo, pasajerosB, pasajerosco;
+            string horario;
+            Console.Write("\n");
+            Console.Write("\n");
+            Console.Write("\n");
+            Console.Write("\t Ingrese el ID del vuelo: ");
+            idvuelo = int.Parse(Console.ReadLine());
+            Console.Write("\t Ingrese el horario de vuelo: ");
+            horario = Console.ReadLine();
+
+            ConsoleKeyInfo tipoAv;
+            Console.WriteLine("\t Ingrese el tipo de avion: ");
+            Console.Write("\t Comercial[A] " + "Trabajo[B]");
+            tipoAv = Console.ReadKey(true);
+
+            switch (tipoAv.Key)
+            {
+                case ConsoleKey.A:
+                    int pasajeros, pjmaxcom;
+                    pjmaxcom = 100;
+                    Console.WriteLine("\t Usted eligio Comercial");
+                    Console.Write("\t Digite la cantidad de pasajeros que iran: ");
+                    pasajeros = int.Parse(Console.ReadLine());
+
+                    if (pasajeros > pjmaxcom)
+                    {
+                        Console.Clear();
+                        Console.Write("\t Digite una cantidad de pasajeros valida");
+                    }
+                    else { 
+                        
+                    }
+                        break;
+                case ConsoleKey.B:
+                    int passmaxtrabajo = 20;
+
+                    Console.WriteLine("\t Usted eligio Trabajo");
+                    Console.Write("\t Digite la cantidad de pasajeros que iran: ");
+                    pasajeros = int.Parse(Console.ReadLine());
+                    if (pasajeros > passmaxtrabajo)
+                    {
+                        Console.Clear();
+                        Console.Write("\t Digite una cantidad de pasajeros valida");
+                    }
+                    break;
+                default:
+                    Console.WriteLine("\t Eliga almenos una opcion de las que se le da");
+                    break;
+            }
+
+            Console.Write("¡Vuelo agregado correctamente!");
+            Console.WriteLine("\n\tPresione cualquier tecla para continuar...");
+            Console.ReadKey(true);
+            break;
+
+        case ConsoleKey.D3:
+            Console.Clear();
+            string Pais, CiudadFinal, escalas;
+            int idvuelos;
+            Console.Write("\n");
+            Console.Write("\n");
+            Console.Write("\n");
+            Console.Write("\t Ingrese al pais de destino: ");
+            Pais = Console.ReadLine();
+            Console.Write("\t Ingrese la Ciudad final: ");
+            CiudadFinal = Console.ReadLine();
+            Console.Write("\n");
+            Console.Write("\t Usted tiene escala?");
+            Console.Write("\n");
+            Console.Write("\t SI[Y] " + "NO[N]");
+            Console.Write("\n");
+            ConsoleKeyInfo escala;
+            escala = Console.ReadKey(true);
+
+            switch (escala.Key)
+            {
+                case ConsoleKey.Y:
+                    string ec;
+                    Console.Write("\t Ingrese la escala: ");
+                    ec = Console.ReadLine();
+                    break;
+                case ConsoleKey.N:
+                    Console.Write("\t Puede proseguir con el procedimiento");
+                    break;
+
+                default:
+                    Console.Write("\t ¡Por lo menos eliga una de las opciones presentes!");
+                    break;
+            }
+
+            Console.Write("\n");
+            Console.Write("\t Ingrese los IDS de los vuelos:");
+            idvuelos = int.Parse(Console.ReadLine());
+
+            Console.Write("\t Destino agregado correctamente");
+            Console.WriteLine("\n\tPresione cualquier tecla para continuar...");
+            Console.ReadKey(true);
+            break;
+        case ConsoleKey.D4:
+            continuar = false; 
+            break;
+
+            break;
+        default:
+            Console.WriteLine("\n\tOpción no válida. Presione cualquier tecla para continuar...");
+            Console.ReadKey(true);
+            break;
+
+    }
+
+
+
+} while (continuar) ;
+
+Console.Clear();
+Console.WriteLine("\n\n\t--> Fin del Programa");
+Console.ReadKey(true);
