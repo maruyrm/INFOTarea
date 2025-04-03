@@ -1,0 +1,44 @@
+case ConsoleKey.D3:
+            Console.Clear();
+            string Pais, CiudadFinal, escalas;
+            int idvuelos;
+            Console.Write("\n");
+            Console.Write("\n");
+            Console.Write("\n");
+            Console.Write("\t Ingrese al pais de destino: ");
+            Pais = Console.ReadLine();
+            Console.Write("\t Ingrese la Ciudad final: ");
+            CiudadFinal = Console.ReadLine();
+            Console.Write("\n");
+            Console.Write("\t Usted tiene escala?");
+            Console.Write("\n");
+            Console.Write("\t SI[Y] " + "NO[N]");
+            Console.Write("\n");
+            ConsoleKeyInfo escala;
+            escala = Console.ReadKey(true);
+
+            switch (escala.Key)
+            {
+                case ConsoleKey.Y:
+                    string ec;
+                    Console.Write("\t Ingrese la escala: ");
+                    ec = Console.ReadLine();
+                    break;
+                case ConsoleKey.N:
+                    Console.Write("\t Puede proseguir con el procedimiento");
+                    break;
+
+                default:
+                    Console.Write("\t ¡Por lo menos eliga una de las opciones presentes!");
+                    break;
+            }
+
+            Console.Write("\n");
+            Console.Write("\t Ingrese los IDS de los vuelos:");
+            idvuelos = int.Parse(Console.ReadLine());
+
+            Console.Write("\t Destino agregado correctamente");
+            Console.WriteLine("\n\tPresione cualquier tecla para continuar...");
+            Console.ReadKey(true);
+            break;
+}
